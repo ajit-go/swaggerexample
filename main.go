@@ -2,6 +2,7 @@ package main
 
 import (
 	"log"
+	"strings"
 	"net/http"
 
 	_ "github.com/ajit-go/swaggerexample/docs"
@@ -48,7 +49,9 @@ func main() {
 
 func commonMiddleware(next http.Handler) http.Handler {
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-	//	w.Header().Add("Content-Type", "application/json")
+		if !strings.Contains(r.URL.Path, "swagger"){
+			w.Header().Add("Content-Type", "application/json")
+		}
 		next.ServeHTTP(w, r)
 	})
 }
