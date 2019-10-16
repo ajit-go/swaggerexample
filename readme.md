@@ -69,3 +69,9 @@ Any compile/runtime exceptions are logged in dynamically generated file:
 - https://labs.bawi.io/documenting-an-api-with-swagger-cb106250239f
 - https://github.com/swaggo/http-swagger/issues/3
 - https://github.com/swaggo/swag
+
+
+- https://semaphoreci.com/community/tutorials/building-and-testing-a-rest-api-in-go-with-gorilla-mux-and-postgresql
+- https://tutorialedge.net/golang/creating-restful-api-with-golang/
+- https://github.com/gorilla/mux
+- https://codeburst.io/unit-testing-for-rest-apis-in-go-86c70dada52d
