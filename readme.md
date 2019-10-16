@@ -1,5 +1,6 @@
 # Description
 An example of using swagger console with gorilla/mux rest.
+![swagger console with golang mux](swagger.png "swagger console with golang mux")
 
 # Process 
 
