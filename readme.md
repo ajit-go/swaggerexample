@@ -36,10 +36,10 @@ import "github.com/ajit-go/swaggerexample/docs"
 https://github.com/swaggo/swag
 
 # Using fresh 
-Fresh reloads the rest app automatically on each file change
+Fresh reloads the rest app automatically on each file change (https://github.com/gravityblast/fresh)
 How to:
 ```zsh
-go get -u 
+go get github.com/pilu/fresh
 ```
 
 just run `fresh` in app root
