@@ -7,16 +7,18 @@ type Data struct {
 
 //Article Thing
 type Article struct {
+	AId     string `json:"aid"`
 	Title   string `json:"title"`
 	Desc    string `json:"desc"`
 	Content string `json:"content"`
 }
+
 //Hello message
-type Hello struct{
+type Hello struct {
 	Message string `json:message`
 }
 
-//Error 
-type Error struct{
+//Error
+type Error struct {
 	Message string `json:message`
 }

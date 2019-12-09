@@ -5,8 +5,9 @@ An example of using swagger console with gorilla/mux rest.
 # Process 
 
 - step 1: Comment annotate main and handler methods with swagger comments https://github.com/swaggo/swag#declarative-comments-format.
+- step 1.1: Download swag by using: `$ go get -u github.com/swaggo/swag/cmd/swag`
 - step 2: swag init -g main.go
-    - this will generate docs folder and swagger json in it. 
+    - this will generate docs folder and swagger json in it
     - import it e.g. _ "github.com/ajit-go/swaggerexample/docs"
 - step 3: host swagger with "github.com/swaggo/http-swagger"
 
