@@ -64,6 +64,21 @@ Any compile/runtime exceptions are logged in dynamically generated file:
 
         l := New()
 
+# Running tests
+        This should run all tests in current directory and all of its subdirectories:
+
+        $ go test ./...
+        This should run all tests with import path prefixed with foo/:
+
+        $ go test foo/...
+        This should run all tests import path prefixed with foo:
+
+        $ go test foo...
+        This should run all tests in your $GOPATH:
+
+        $ go test ...
+        go test -cover ./...
+        go test $(go list ./... | grep -v /archive/)
 # links
 - https://stackoverflow.com/questions/51456253/how-to-set-http-responsewriter-content-type-header-globally-for-all-api-endpoint
 - https://labs.bawi.io/documenting-an-api-with-swagger-cb106250239f

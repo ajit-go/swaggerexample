@@ -64,6 +64,17 @@ paths:
       consumes:
       - application/json
       description: get Articles
+      parameters:
+      - description: name search by q
+        in: header
+        name: name
+        required: true
+        type: string
+      - description: name search by q
+        in: query
+        name: q
+        required: true
+        type: string
       produces:
       - application/json
       responses:
@@ -81,5 +92,21 @@ paths:
           description: Not Found
           schema:
             type: string
+      security:
+      - BasicAuth: []
       summary: list Articles
+securityDefinitions:
+  ApiKeyAuth:
+    in: header
+    name: Authorization
+    type: apiKey
+  BasicAuth:
+    type: basic
+  OAuth2Application:
+    flow: application
+    scopes:
+      manage: ' Grants read and write access'
+      view: '  Grants read access'
+    tokenUrl: https://api.stage.context.cloud.sap/uaa/oauth/token
+    type: oauth2
 swagger: "2.0"

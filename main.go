@@ -37,6 +37,15 @@ func handleRoutes(r *mux.Router) {
 
 // @host github.com/ajit-go/swaggerexample
 // @BasePath /v2
+// @securityDefinitions.basic BasicAuth
+// @securityDefinitions.apikey ApiKeyAuth
+// @in header
+// @name Authorization
+
+// @securitydefinitions.oauth2.application OAuth2Application
+// @tokenUrl https://api.stage.context.cloud.sap/uaa/oauth/token
+// @scope.view  Grants read access
+// @scope.manage Grants read and write access 
 func main() {
 	router := mux.NewRouter()
 	router.Use(commonMiddleware)

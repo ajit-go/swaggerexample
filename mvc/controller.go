@@ -3,8 +3,8 @@ package mvc
 import (
 	"encoding/json"
 	"fmt"
-	"net/http"
 	. "github.com/ajit-go/swaggerexample/model"
+	"net/http"
 )
 
 //Controller struct to hold all rest handler fucntions
@@ -20,9 +20,9 @@ var data = Data{}
 // @Param q query string false "name search by q"
 // @Success 200 {object} model.Hello
 // @Header 200 {string} Token "qwerty"
-// Failure 400 {object} 
+// Failure 400 {object}
 // @Failure 404 {object} model.Error
-// Failure 500 {object} 
+// Failure 500 {object}
 // @Router / [get]
 func (c *Controller) Home(w http.ResponseWriter, r *http.Request) {
 	fmt.Fprint(w, "Home page")
@@ -33,13 +33,15 @@ func (c *Controller) Home(w http.ResponseWriter, r *http.Request) {
 // @Description get Articles
 // @Accept  json
 // @Produce  json
-// Param q query string false "name search by q"
+// @Param name header string true "name search by q"
+// @Param q query string true "name search by q"
 // @Success 200 {array} model.Article
 // @Header 200 {string} Token "qwerty"
-// Failure 400 {object} 
+// Failure 400 {object}
 // @Failure 404 {string} model.Error
-// Failure 500 {object} 
+// Failure 500 {object}
 // @Router /articles [get]
+// @Security BasicAuth
 func (c *Controller) GetArticles(w http.ResponseWriter, r *http.Request) {
 	initialize()
 	fmt.Println("Endpoint Hit: returnAllArticles")
