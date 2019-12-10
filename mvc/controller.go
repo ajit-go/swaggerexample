@@ -14,12 +14,33 @@ type Controller struct{}
 
 var data = Data{}
 
-
+// Home page
+// @Summary Home page
+// @Description Home page
+// @Accept  json
+// @Produce  json
+// @Param name query string false "search by name"
+// @Success 200 {object} model.Hello
+// @Header 200 {string} Token "qwerty"
+// Failure 400 {object} model.Error
+// @Router / [get]
 func (c *Controller) Home(w http.ResponseWriter, r *http.Request) {
 	json.NewEncoder(w).Encode(Hello{"home of api"})
 }
 
-
+//GetArticles page
+// @Summary list Articles
+// @Description get Articles
+// @Accept  json
+// @Produce  json
+// @Param tenant header string true "tenant name"
+// @Success 200 {array} model.Article
+// @Header 200 {string} Token "qwerty"
+// Failure 400 {object} model.Error
+// @Failure 404 {string} model.Error
+// @Failure 500 {object} model.Error
+// @Router /articles [get]
+// @Security BasicAuth
 func (c *Controller) GetArticles(w http.ResponseWriter, r *http.Request) {
 	initialize()
 	fmt.Println("Endpoint Hit: returnAllArticles")

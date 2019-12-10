@@ -1,4 +1,26 @@
 basePath: /v2
+definitions:
+  model.Article:
+    properties:
+      aid:
+        type: string
+      content:
+        type: string
+      desc:
+        type: string
+      title:
+        type: string
+    type: object
+  model.Error:
+    properties:
+      message:
+        type: string
+    type: object
+  model.Hello:
+    properties:
+      message:
+        type: string
+    type: object
 host: localhost:8082
 info:
   contact:
@@ -12,7 +34,64 @@ info:
   termsOfService: http://swagger.io/terms/
   title: Swagger Example API
   version: "1.0"
-paths: {}
+paths:
+  /:
+    get:
+      consumes:
+      - application/json
+      description: Home page
+      parameters:
+      - description: search by name
+        in: query
+        name: name
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          headers:
+            Token:
+              description: qwerty
+              type: string
+          schema:
+            $ref: '#/definitions/model.Hello'
+      summary: Home page
+  /articles:
+    get:
+      consumes:
+      - application/json
+      description: get Articles
+      parameters:
+      - description: tenant name
+        in: header
+        name: tenant
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          headers:
+            Token:
+              description: qwerty
+              type: string
+          schema:
+            items:
+              $ref: '#/definitions/model.Article'
+            type: array
+        "404":
+          description: Not Found
+          schema:
+            type: string
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/model.Error'
+      security:
+      - BasicAuth: []
+      summary: list Articles
 securityDefinitions:
   ApiKeyAuth:
     in: header

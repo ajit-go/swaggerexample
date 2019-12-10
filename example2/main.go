@@ -26,19 +26,6 @@ func home(w http.ResponseWriter, r *http.Request) {
 	fmt.Fprint(w, "Home page - example 2")
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 func getArticle(w http.ResponseWriter, r *http.Request) {
 	aid := mux.Vars(r)["aid"]
 	a := article{AId: aid, Title: "sonos one", Desc: "sonos one smart speaker", Content: "Speakers with alexa and google home"}
